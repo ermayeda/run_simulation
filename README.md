@@ -1,0 +1,2 @@
+# run_simulation_race_ScenarioA
+code copied from "run_simulation_race_slope_ScenarioA_2016Sept6_corr_per10000PY_newedits.do"
