@@ -52,6 +52,8 @@ nstrokes75to85_exp1=nstrokes75to85_exp1 ptime75to85_exp1=ptime75to85_exp1 ///
 nstrokes75to85_exp0=nstrokes75to85_exp0 ptime75to85_exp0=ptime75to85_exp0 ///
 nstrokes85to95_exp1=nstrokes85to95_exp1 ptime85to95_exp1=ptime85to95_exp1 ///
 nstrokes85to95_exp0=nstrokes85to95_exp0 ptime85to95_exp0=ptime85to95_exp0 ///
+meanUatrisk0_exp1=meanUatrisk0_exp1 ///
+meanUatrisk0_exp0=meanUatrisk0_exp0 ///
 Natrisk45_exp1=Natrisk45_exp1 meanUatrisk45_exp1=meanUatrisk45_exp1 ///
 Natrisk45_exp0=Natrisk45_exp0 meanUatrisk45_exp0=meanUatrisk45_exp0 ///
 Natrisk50_exp1=Natrisk50_exp1 meanUatrisk50_exp1=meanUatrisk50_exp1 ///
@@ -385,23 +387,23 @@ using SimulationResults_N`N_rounded'_B`B', sheet("Surv") modify
 
 /*distributions of U and N at risk at each age*/
 putexcel A1=("Scenario") ///
-B1=("mean U at risk 45 white") C1=("mean U at risk 50 white") D1=("mean U at risk 55 white") ///
-E1=("mean U at risk 60 white") F1=("mean U at risk 65 white") G1=("mean U at risk 70 white") ///
-H1=("mean U at risk 75 white") I1=("mean U at risk 80 white") J1=("mean U at risk 85 white") ///
-K1=("mean U at risk 90 white") ///
-L1=("mean U at risk 45 black") M1=("mean U at risk 50 black") N1=("mean U at risk 55 black") ///
-O1=("mean U at risk 60 black") P1=("mean U at risk 65 black") Q1=("mean U at risk 70 black") ///
-R1=("mean U at risk 75 black") S1=("mean U at risk 80 black") T1=("mean U at risk 85 black") ///
-U1=("mean U at risk 90 black") ///
+B1=("mean U at risk birth white") C1=("mean U at risk 45 white") D1=("mean U at risk 50 white") E1=("mean U at risk 55 white") ///
+F1=("mean U at risk 60 white") G1=("mean U at risk 65 white") H1=("mean U at risk 70 white") ///
+I1=("mean U at risk 75 white") J1=("mean U at risk 80 white") K1=("mean U at risk 85 white") ///
+L1=("mean U at risk 90 white") ///
+M1=("mean U at risk birth black") N2=(mean_meanUatrisk0_exp0)  O1=("mean U at risk 45 black") P1=("mean U at risk 50 black") Q1=("mean U at risk 55 black") ///
+R1=("mean U at risk 60 black") S1=("mean U at risk 65 black") T1=("mean U at risk 70 black") ///
+U1=("mean U at risk 75 black") V1=("mean U at risk 80 black") W1=("mean U at risk 85 black") ///
+X1=("mean U at risk 90 black") ///
 A2=("Scenario A") ///
-B2=(mean_meanUatrisk45_exp0) C2=(mean_meanUatrisk50_exp0) D2=(mean_meanUatrisk55_exp0) ///
-E2=(mean_meanUatrisk60_exp0) F2=(mean_meanUatrisk65_exp0) G2=(mean_meanUatrisk70_exp0) ///
-H2=(mean_meanUatrisk75_exp0) I2=(mean_meanUatrisk80_exp0) J2=(mean_meanUatrisk85_exp0) ///
-K2=(mean_meanUatrisk90_exp0) ///
-L2=(mean_meanUatrisk45_exp1) M2=(mean_meanUatrisk50_exp1) N2=(mean_meanUatrisk55_exp1) ///
-O2=(mean_meanUatrisk60_exp1) P2=(mean_meanUatrisk65_exp1) Q2=(mean_meanUatrisk70_exp1) ///
-R2=(mean_meanUatrisk75_exp1) S2=(mean_meanUatrisk80_exp1) T2=(mean_meanUatrisk85_exp1) ///
-U2=(mean_meanUatrisk90_exp1) ///
+B2=(mean_meanUatrisk0_exp0)  C2=(mean_meanUatrisk45_exp0) D2=(mean_meanUatrisk50_exp0) E2=(mean_meanUatrisk55_exp0) ///
+F2=(mean_meanUatrisk60_exp0) G2=(mean_meanUatrisk65_exp0) H2=(mean_meanUatrisk70_exp0) ///
+I2=(mean_meanUatrisk75_exp0) J2=(mean_meanUatrisk80_exp0) K2=(mean_meanUatrisk85_exp0) ///
+L2=(mean_meanUatrisk90_exp0) ///
+M2=(mean_meanUatrisk0_exp1) N2=(mean_meanUatrisk45_exp1) O2=(mean_meanUatrisk50_exp1) P2=(mean_meanUatrisk55_exp1) ///
+Q2=(mean_meanUatrisk60_exp1) R2=(mean_meanUatrisk65_exp1) S2=(mean_meanUatrisk70_exp1) ///
+T2=(mean_meanUatrisk75_exp1) U2=(mean_meanUatrisk80_exp1) V2=(mean_meanUatrisk85_exp1) ///
+W2=(mean_meanUatrisk90_exp1) ///
 using SimulationResults_N`N_rounded'_B`B', sheet("meanUatrisk") modify
 
 
@@ -470,24 +472,48 @@ using SimulationResults_N`N_rounded'_B`B', sheet("Pstroke") modify
 
 
 
-/***export data to excel*/
+/***export data to Excel***/
 export excel using EachSimulationResults_N`N_rounded'_B`B', sheet("ScenarioAResults") sheetmodify firstrow(variables)
 
 /***save data***/
 save "C:\Users\emayeda\Dropbox\ERMayeda\ScenarioA_2016Sept6_corr_per10000PY_each_sim_results.dta"
 
+
+/***histograms***/
+twoway (histogram meanUatrisk0_exp0, fcolor(none) lcolor(blue)) ///
+       (histogram meanUatrisk0_exp1, fcolor(none) lcolor(red)), ///
+	   xlabel(-1.5(0.5)1.5) legend(order(1 "white" 2 "black")) graphregion(fcolor(white)) title("mean U at risk, birth", color(black) size(med))
+	   graph save Graph "C:\Users\emayeda\Dropbox\ERMayeda\Disparities_simulations\Stata\meanUhistogram0.gph", replace
+
+twoway (histogram meanUatrisk45_exp0, fcolor(none) lcolor(blue)) ///
+       (histogram meanUatrisk45_exp1, fcolor(none) lcolor(red)), ///
+	   xlabel(-1.5(0.5)1.5) legend(order(1 "white" 2 "black")) graphregion(fcolor(white)) title("mean U at risk, age 45", color(black) size(med))
+	   graph save Graph "C:\Users\emayeda\Dropbox\ERMayeda\Disparities_simulations\Stata\meanUhistogram45.gph", replace
+    
+twoway (histogram meanUatrisk55_exp0, fcolor(none) lcolor(blue)) ///
+       (histogram meanUatrisk55_exp1, fcolor(none) lcolor(red)), ///
+	   xlabel(-1.5(0.5)1.5) legend(order(1 "white" 2 "black")) graphregion(fcolor(white)) title("mean U at risk, age 55", color(black) size(med))
+	   graph save Graph "C:\Users\emayeda\Dropbox\ERMayeda\Disparities_simulations\Stata\meanUhistogram55.gph", replace	   
+	   
+twoway (histogram meanUatrisk65_exp0, fcolor(none) lcolor(blue)) ///
+       (histogram meanUatrisk65_exp1, fcolor(none) lcolor(red)), ///
+	   xlabel(-1.5(0.5)1.5) legend(order(1 "white" 2 "black")) graphregion(fcolor(white)) title("mean U at risk, age 65", color(black) size(med))
+	   graph save Graph "C:\Users\emayeda\Dropbox\ERMayeda\Disparities_simulations\Stata\meanUhistogram65.gph", replace
+	   
+twoway (histogram meanUatrisk75_exp0, fcolor(none) lcolor(blue)) ///
+       (histogram meanUatrisk75_exp1, fcolor(none) lcolor(red)), ///
+	   xlabel(-1.5(0.5)1.5) legend(order(1 "white" 2 "black")) graphregion(fcolor(white)) title("mean U at risk, age 75", color(black) size(med))
+	   graph save Graph "C:\Users\emayeda\Dropbox\ERMayeda\Disparities_simulations\Stata\meanUhistogram75.gph", replace
+	   
+twoway (histogram meanUatrisk85_exp0, fcolor(none) lcolor(blue)) ///
+       (histogram meanUatrisk85_exp1, fcolor(none) lcolor(red)), ///
+	   xlabel(-1.5(0.5)1.5) legend(order(1 "white" 2 "black")) graphregion(fcolor(white)) title("mean U at risk, age 85", color(black) size(med))
+	   graph save Graph "C:\Users\emayeda\Dropbox\ERMayeda\Disparities_simulations\Stata\meanUhistogram85.gph", replace
+ 
+ 
 di "$S_TIME"
 
  timer off 1
  
  timer list 1
- 
- twoway (histogram meanUatrisk45_exp0, start(-2) width(0.001)) ///
-       (histogram meanUatrisk45_exp1, start(-2) width(0.001))
-
- twoway (histogram meanUatrisk90_exp0, color(blue)) ///
-       (histogram meanUatrisk90_exp1, color(red))
- 
- 
- /*histograms*/
 
