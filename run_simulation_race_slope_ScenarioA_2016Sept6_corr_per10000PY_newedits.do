@@ -196,6 +196,8 @@ nstrokes75to85_exp0 ptime75to85_exp0 ///
 nstrokes75to85_exp1 ptime75to85_exp1 ///
 nstrokes85to95_exp0 ptime85to95_exp0 ///
 nstrokes85to95_exp1 ptime85to95_exp1 ///
+meanUatrisk0_exp1 ///
+meanUatrisk0_exp0 ///
 Natrisk45_exp1 meanUatrisk45_exp1 ///
 Natrisk45_exp0 meanUatrisk45_exp0 ///
 Natrisk50_exp1 meanUatrisk50_exp1 ///
