@@ -478,7 +478,7 @@ using SimulationResults_N`N_rounded'_B`B', sheet("Pstroke") modify
 export excel using EachSimulationResults_N`N_rounded'_B`B', sheet("ScenarioAResults") sheetmodify firstrow(variables)
 
 /***save data***/
-save "C:\Users\emayeda\Dropbox\ERMayeda\ScenarioA_2016Sept6_corr_per10000PY_each_sim_results.dta"
+save "C:\Users\emayeda\Dropbox\ERMayeda\ScenarioA_2016Sept6_corr_per10000PY_each_sim_results.dta", replace
 
 
 /***histograms***/
