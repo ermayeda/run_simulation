@@ -8,9 +8,9 @@ timer clear 1
 timer on 1
 
 capture log close
-*log using CR_simulation_scenarioA, replace
 
-local B = 450 //number of simulations
+
+local B = $B //number of simulations
 
 simulate ///
 N=N N_exp1=N_exp1 N_exp0=N_exp0 ///
@@ -84,7 +84,7 @@ nstrokes55to60_exp1=nstrokes55to60_exp1 nstrokes60to65_exp1=nstrokes60to65_exp1 
 nstrokes65to70_exp1=nstrokes65to70_exp1 nstrokes70to75_exp1=nstrokes70to75_exp1 ///
 nstrokes75to80_exp1=nstrokes75to80_exp1 nstrokes80to85_exp1=nstrokes80to85_exp1 ///
 nstrokes85to90_exp1=nstrokes85to90_exp1 nstrokes90to95_exp1=nstrokes90to95_exp1, ///
-reps(`B') seed(67208113): do race_slope_ScenarioA_2016Sept6_corr_per10000PY
+reps(`B') seed(67208113): do stroke_disparities_data_generation_analysis_$causalscenario
 
 *number of individuals
 local N = N
@@ -289,7 +289,7 @@ putexcel A1=("Scenario") ///
 B1=("IRR 45to55") C1=("empSE(IRR 45to55)") D1=("IRR 55to65") E1=("empSE(IRR 55to65)") ///
 F1=("IRR 65to75") G1=("empSE(IRR 65to75)") H1=("IRR 75to85") I1=("empSE(IRR 75to85)") ///
 J1=("IRR 85to95") K1=("empSE(IRR 85to95)") ///
-A2=("Scenario A") ///
+A2=("$causalscenario") ///
 B2=(mean_strokeIRR45to55) C2=(empSE_strokeIRR45to55) D2=(mean_strokeIRR55to65) E2=(empSE_strokeIRR55to65) ///
 F2=(mean_strokeIRR65to75) G2=(empSE_strokeIRR65to75) H2=(mean_strokeIRR75to85) I2=(empSE_strokeIRR75to85) ///
 J2=(mean_strokeIRR85to95) K2=(empSE_strokeIRR85to95) ///
@@ -302,7 +302,7 @@ B1=("IRD 45to55") C1=("empSE(IRD 45to55)") D1=("IRD 55to65") ///
 E1=("empSE(IRD 55to65)") F1=("IRD 65to75") G1=("empSE(IRD 65to75)") ///
 H1=("IRD 75to85") I1=("empSE(IRD 75to85)") J1=("IRD 85to95") ///
 K1=("empSE(IRD 85to95)") ///
-A2=("Scenario A") ///
+A2=("$causalscenario") ///
 B2=(mean_strokeIRD45to55) C2=(empSE_strokeIRD45to55) D2=(mean_strokeIRD55to65) ///
 E2=(empSE_strokeIRD55to65) F2=(mean_strokeIRD65to75) ///
 G2=(empSE_strokeIRD65to75) H2=(mean_strokeIRD75to85) ///
@@ -318,7 +318,7 @@ D1=("IR/10000 PYs 65to75 whites") E1=("IR/10000 PYs 75to85 whites") ///
 F1=("IR/10000 PYs 85to95 whites") G1=("IR/10000 PYs 45to55 blacks") ///
 H1=("IR/10000 PYs 55to65 blacks") I1=("IR/10000 PYs 65to75 blacks") ///
 J1=("IR/10000 PYs 75to85 blacks") K1=("IR/1000 PYs 85to95 blacks") ///
-A2=("Scenario A") ///
+A2=("$causalscenario") ///
 B2=(mean_strokerate45to55_exp0) C2=(mean_strokerate55to65_exp0) ///
 D2=(mean_strokerate65to75_exp0) E2=(mean_strokerate75to85_exp0) ///
 F2=(mean_strokerate85to95_exp0) G2=(mean_strokerate45to55_exp1) ///
@@ -339,7 +339,7 @@ N1=("# strokes 55to65 blacks") O1=("PYs 55to65 blacks") ///
 P1=("# strokes 65to75 blacks") Q1=("PYs 65to75 blacks") ///
 R1=("# strokes 75to85 blacks") S1=("PYs 75to85 blacks") ///
 T1=("# strokes 85to95 blacks") U1=("PYs 85to95 blacks") ///
-A2=("Scenario A") ///
+A2=("$causalscenario") ///
 B2=(mean_nstrokes45to55_exp0) C2=(mean_ptime45to55_exp0) ///
 D2=(mean_nstrokes55to65_exp0) E2=(mean_ptime55to65_exp0) ///
 F2=(mean_nstrokes65to75_exp0) G2=(mean_ptime65to75_exp0) ///
@@ -369,7 +369,7 @@ T1=("P alive age 60 blacks") U1=("P alive age 65 blacks") ///
 V1=("P alive age 70 blacks") W1=("P alive age 75 blacks") ///
 X1=("P alive age 80 blacks") Y1=("P alive age 85 blacks") ///
 Z1=("P alive age 90 blacks") AA1=("P alive age 95 blacks") ///
-A2=("Scenario A") ///
+A2=("$causalscenario") ///
 B2=(mean_N_exp0) ///
 C2=(mean_med_survage_exp0) D2=(mean_p_alive45_exp0) ///
 E2=(mean_p_alive50_exp0) F2=(mean_p_alive55_exp0) ///
@@ -397,7 +397,7 @@ M1=("mean U at risk birth black") N2=(mean_meanUatrisk0_exp0)  O1=("mean U at ri
 R1=("mean U at risk 60 black") S1=("mean U at risk 65 black") T1=("mean U at risk 70 black") ///
 U1=("mean U at risk 75 black") V1=("mean U at risk 80 black") W1=("mean U at risk 85 black") ///
 X1=("mean U at risk 90 black") ///
-A2=("Scenario A") ///
+A2=("$causalscenario") ///
 B2=(mean_meanUatrisk0_exp0)  C2=(mean_meanUatrisk45_exp0) D2=(mean_meanUatrisk50_exp0) E2=(mean_meanUatrisk55_exp0) ///
 F2=(mean_meanUatrisk60_exp0) G2=(mean_meanUatrisk65_exp0) H2=(mean_meanUatrisk70_exp0) ///
 I2=(mean_meanUatrisk75_exp0) J2=(mean_meanUatrisk80_exp0) K2=(mean_meanUatrisk85_exp0) ///
@@ -419,7 +419,7 @@ L1=("N at risk 45 black") M1=("N at risk 50black") N1=("N at risk 55 black") ///
 O1=("N at risk 60 black") P1=("N at risk 65black") Q1=("N at risk 70 black") ///
 R1=("N at risk 75 black") S1=("N at risk 80black") T1=("N at risk 85 black") ///
 U1=("N at risk 90 black") ///
-A2=("Scenario A") ///
+A2=("$causalscenario") ///
  B2=(mean_Natrisk45_exp0) C2=(mean_Natrisk50_exp0) D2=(mean_Natrisk55_exp0) ///
 E2=(mean_Natrisk60_exp0) F2=(mean_Natrisk65_exp0) G2=(mean_Natrisk70_exp0) ///
 H2=(mean_Natrisk75_exp0) I2=(mean_Natrisk80_exp0) J2=(mean_Natrisk85_exp0) ///
@@ -440,7 +440,7 @@ L1=("N strokes 45-50 black") M1=("N strokes 50-55 black") N1=("N strokes 55-60 b
 O1=("N strokes 60-65 black") P1=("N strokes 65-70 black") Q1=("N strokes 70-75 black") ///
 R1=("N strokes 75-80 black") S1=("N strokes 80-85 black") T1=("N strokes 85-90 black") ///
 U1=("N strokes 90-95 black") ///
-A2=("Scenario A") ///
+A2=("$causalscenario") ///
 B2=(mean_nstrokes45to50_exp0) C2=(mean_nstrokes50to55_exp0) D2=(mean_nstrokes55to60_exp0) ///
 E2=(mean_nstrokes60to65_exp0) F2=(mean_nstrokes65to70_exp0) G2=(mean_nstrokes70to75_exp0) ///
 H2=(mean_nstrokes75to80_exp0) I2=(mean_nstrokes80to85_exp0) J2=(mean_nstrokes85to90_exp0) ///
@@ -461,7 +461,7 @@ L1=("P strokes 45-50 black") M1=("P strokes 50-55 black") N1=("P strokes 55-60 b
 O1=("P strokes 60-65 black") P1=("P strokes 65-70 black") Q1=("P strokes 70-75 black") ///
 R1=("P strokes 75-80 black") S1=("P strokes 80-85 black") T1=("P strokes 85-90 black") ///
 U1=("P strokes 90-95 black") ///
-A2=("Scenario A") ///
+A2=("$causalscenario") ///
 B2=(mean_p_stroke45to50_exp0) C2=(mean_p_stroke50to55_exp0) D2=(mean_p_stroke55to60_exp0) ///
 E2=(mean_p_stroke60to65_exp0) F2=(mean_p_stroke65to70_exp0) G2=(mean_p_stroke70to75_exp0) ///
 H2=(mean_p_stroke75to80_exp0) I2=(mean_p_stroke80to85_exp0) J2=(mean_p_stroke85to90_exp0) ///
@@ -475,42 +475,42 @@ using SimulationResults_N`N_rounded'_B`B', sheet("Pstroke") modify
 
 
 /***export data to Excel***/
-export excel using EachSimulationResults_N`N_rounded'_B`B', sheet("ScenarioAResults") sheetmodify firstrow(variables)
+export excel using EachSimulationResults_N`N_rounded'_B`B', sheet("$causalscenario") sheetmodify firstrow(variables)
 
 /***save data***/
-save "C:\Users\emayeda\Dropbox\ERMayeda\ScenarioA_2016Sept6_corr_per10000PY_each_sim_results.dta", replace
+save "C:\Users\emayeda\Dropbox\ERMayeda\each_sim_results_$causalscenario.dta", replace
 
 
 /***histograms***/
 twoway (histogram meanUatrisk0_exp0, fcolor(none) lcolor(blue)) ///
        (histogram meanUatrisk0_exp1, fcolor(none) lcolor(red)), ///
-	   xlabel(-1.5(0.5)1.5) legend(order(1 "white" 2 "black")) graphregion(fcolor(white)) title("mean U at risk, birth", color(black) size(med))
-	   graph save Graph "C:\Users\emayeda\Dropbox\ERMayeda\Disparities_simulations\Stata\meanUhistogram0.gph", replace
+	   xlabel(-1.5(0.5)1.5) legend(order(1 "white" 2 "black")) graphregion(fcolor(white)) title("$causalscenario: mean U at risk, birth", color(black) size(med))
+	   graph save Graph "C:\Users\emayeda\Dropbox\ERMayeda\Disparities_simulations\Stata\meanUhistogram0_$causalscenario.gph", replace
 
 twoway (histogram meanUatrisk45_exp0, fcolor(none) lcolor(blue)) ///
        (histogram meanUatrisk45_exp1, fcolor(none) lcolor(red)), ///
-	   xlabel(-1.5(0.5)1.5) legend(order(1 "white" 2 "black")) graphregion(fcolor(white)) title("mean U at risk, age 45", color(black) size(med))
-	   graph save Graph "C:\Users\emayeda\Dropbox\ERMayeda\Disparities_simulations\Stata\meanUhistogram45.gph", replace
+	   xlabel(-1.5(0.5)1.5) legend(order(1 "white" 2 "black")) graphregion(fcolor(white)) title("$causalscenario: mean U at risk, age 45", color(black) size(med))
+	   graph save Graph "C:\Users\emayeda\Dropbox\ERMayeda\Disparities_simulations\Stata\meanUhistogram45_$causalscenario.gph", replace
     
 twoway (histogram meanUatrisk55_exp0, fcolor(none) lcolor(blue)) ///
        (histogram meanUatrisk55_exp1, fcolor(none) lcolor(red)), ///
-	   xlabel(-1.5(0.5)1.5) legend(order(1 "white" 2 "black")) graphregion(fcolor(white)) title("mean U at risk, age 55", color(black) size(med))
-	   graph save Graph "C:\Users\emayeda\Dropbox\ERMayeda\Disparities_simulations\Stata\meanUhistogram55.gph", replace	   
+	   xlabel(-1.5(0.5)1.5) legend(order(1 "white" 2 "black")) graphregion(fcolor(white)) title("$causalscenario: mean U at risk, age 55", color(black) size(med))
+	   graph save Graph "C:\Users\emayeda\Dropbox\ERMayeda\Disparities_simulations\Stata\meanUhistogram55_$causalscenario.gph", replace	   
 	   
 twoway (histogram meanUatrisk65_exp0, fcolor(none) lcolor(blue)) ///
        (histogram meanUatrisk65_exp1, fcolor(none) lcolor(red)), ///
-	   xlabel(-1.5(0.5)1.5) legend(order(1 "white" 2 "black")) graphregion(fcolor(white)) title("mean U at risk, age 65", color(black) size(med))
-	   graph save Graph "C:\Users\emayeda\Dropbox\ERMayeda\Disparities_simulations\Stata\meanUhistogram65.gph", replace
+	   xlabel(-1.5(0.5)1.5) legend(order(1 "white" 2 "black")) graphregion(fcolor(white)) title("$causalscenario: mean U at risk, age 65", color(black) size(med))
+	   graph save Graph "C:\Users\emayeda\Dropbox\ERMayeda\Disparities_simulations\Stata\meanUhistogram65_$causalscenario.gph", replace
 	   
 twoway (histogram meanUatrisk75_exp0, fcolor(none) lcolor(blue)) ///
        (histogram meanUatrisk75_exp1, fcolor(none) lcolor(red)), ///
-	   xlabel(-1.5(0.5)1.5) legend(order(1 "white" 2 "black")) graphregion(fcolor(white)) title("mean U at risk, age 75", color(black) size(med))
-	   graph save Graph "C:\Users\emayeda\Dropbox\ERMayeda\Disparities_simulations\Stata\meanUhistogram75.gph", replace
+	   xlabel(-1.5(0.5)1.5) legend(order(1 "white" 2 "black")) graphregion(fcolor(white)) title("$causalscenario: mean U at risk, age 75", color(black) size(med))
+	   graph save Graph "C:\Users\emayeda\Dropbox\ERMayeda\Disparities_simulations\Stata\meanUhistogram75_$causalscenario.gph", replace
 	   
 twoway (histogram meanUatrisk85_exp0, fcolor(none) lcolor(blue)) ///
        (histogram meanUatrisk85_exp1, fcolor(none) lcolor(red)), ///
-	   xlabel(-1.5(0.5)1.5) legend(order(1 "white" 2 "black")) graphregion(fcolor(white)) title("mean U at risk, age 85", color(black) size(med))
-	   graph save Graph "C:\Users\emayeda\Dropbox\ERMayeda\Disparities_simulations\Stata\meanUhistogram85.gph", replace
+	   xlabel(-1.5(0.5)1.5) legend(order(1 "white" 2 "black")) graphregion(fcolor(white)) title("$causalscenario: mean U at risk, age 85", color(black) size(med))
+	   graph save Graph "C:\Users\emayeda\Dropbox\ERMayeda\Disparities_simulations\Stata\meanUhistogram85_$causalscenario.gph", replace
  
  
 di "$S_TIME"
