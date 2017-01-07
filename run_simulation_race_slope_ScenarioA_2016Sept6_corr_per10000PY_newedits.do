@@ -28,20 +28,20 @@ p_death95=p_death95 p_death95_exp0=p_death95_exp0 p_death95_exp1=p_death95_exp1 
 med_survage=med_survage med_survage_exp0=med_survage_exp0 med_survage_exp1=med_survage_exp1 ///
 p_stroke=p_stroke p_stroke_exp0=p_stroke_exp0 p_stroke_exp1=p_stroke_exp1 ///
 strokerate45to55_exp0=strokerate10000pys45to55_exp0 strokerate45to55_exp1=strokerate10000pys45to55_exp1 ///
-strokeIRR45to55=strokeIRR45to55 strokeIRR45to55_lb=strokeIRR45to55_lb strokeIRR45to55_ub=strokeIRR45to55_ub ///
+strokeIRR45to55=strokeIRR45to55 strokeIRR45to55_lb=strokeIRR45to55_lb strokeIRR45to55_ub=strokeIRR45to55_ub strokelnIRR45to55_SE ///
 strokerate55to65_exp0=strokerate10000pys55to65_exp0 strokerate55to65_exp1=strokerate10000pys55to65_exp1 ///
-strokeIRR55to65=strokeIRR55to65 strokeIRR55to65_lb=strokeIRR55to65_lb strokeIRR55to65_ub=strokeIRR55to65_ub ///
+strokeIRR55to65=strokeIRR55to65 strokeIRR55to65_lb=strokeIRR55to65_lb strokeIRR55to65_ub=strokeIRR55to65_ub strokelnIRR55to65_SE ///
 strokerate65to75_exp0=strokerate10000pys65to75_exp0 strokerate65to75_exp1=strokerate10000pys65to75_exp1 ///
-strokeIRR65to75=strokeIRR65to75 strokeIRR65to75_lb=strokeIRR65to75_lb strokeIRR65to75_ub=strokeIRR65to75_ub ///
+strokeIRR65to75=strokeIRR65to75 strokeIRR65to75_lb=strokeIRR65to75_lb strokeIRR65to75_ub=strokeIRR65to75_ub strokelnIRR65to75_SE  ///
 strokerate75to85_exp0=strokerate10000pys75to85_exp0 strokerate75to85_exp1=strokerate10000pys75to85_exp1 ///
-strokeIRR75to85=strokeIRR75to85 strokeIRR75to85_lb=strokeIRR75to85_lb strokeIRR75to85_ub=strokeIRR75to85_ub ///
+strokeIRR75to85=strokeIRR75to85 strokeIRR75to85_lb=strokeIRR75to85_lb strokeIRR75to85_ub=strokeIRR75to85_ub strokelnIRR75to85_SE ///
 strokerate85to95_exp0=strokerate10000pys85to95_exp0 strokerate85to95_exp1=strokerate10000pys85to95_exp1 ///
-strokeIRR85to95=strokeIRR85to95 strokeIRR85to95_lb=strokeIRR85to95_lb strokeIRR85to95_ub=strokeIRR85to95_ub ///
-strokeIRD45to55=strokeIRD45to55 strokeIRD45to55_lb=strokeIRD45to55_lb strokeIRD45to55_ub=strokeIRD45to55_ub ///
-strokeIRD55to65=strokeIRD55to65 strokeIRD55to65_lb=strokeIRD55to65_lb strokeIRD55to65_ub=strokeIRD55to65_ub ///
-strokeIRD65to75=strokeIRD65to75 strokeIRD65to75_lb=strokeIRD65to75_lb strokeIRD65to75_ub=strokeIRD65to75_ub ///
-strokeIRD75to85=strokeIRD75to85 strokeIRD75to85_lb=strokeIRD75to85_lb strokeIRD75to85_ub=strokeIRD75to85_ub ///
-strokeIRD85to95=strokeIRD85to95 strokeIRD85to95_lb=strokeIRD85to95_lb strokeIRD85to95_ub=strokeIRD85to95_ub ///
+strokeIRR85to95=strokeIRR85to95 strokeIRR85to95_lb=strokeIRR85to95_lb strokeIRR85to95_ub=strokeIRR85to95_ub strokelnIRR85to95_SE ///
+strokeIRD45to55=strokeIRD45to55 strokeIRD45to55_lb=strokeIRD45to55_lb strokeIRD45to55_ub=strokeIRD45to55_ub strokeIRD45to55_SE ///
+strokeIRD55to65=strokeIRD55to65 strokeIRD55to65_lb=strokeIRD55to65_lb strokeIRD55to65_ub=strokeIRD55to65_ub strokeIRD55to65_SE ///
+strokeIRD65to75=strokeIRD65to75 strokeIRD65to75_lb=strokeIRD65to75_lb strokeIRD65to75_ub=strokeIRD65to75_ub strokeIRD65to75_SE ///
+strokeIRD75to85=strokeIRD75to85 strokeIRD75to85_lb=strokeIRD75to85_lb strokeIRD75to85_ub=strokeIRD75to85_ub strokeIRD75to85_SE ///
+strokeIRD85to95=strokeIRD85to95 strokeIRD85to95_lb=strokeIRD85to95_lb strokeIRD85to95_ub=strokeIRD85to95_ub strokeIRD85to95_SE ///
 nstrokes45to55_exp1=nstrokes45to55_exp1 ptime45to55_exp1=ptime45to55_exp1 ///
 nstrokes45to55_exp0=nstrokes45to55_exp0 ptime45to55_exp0=ptime45to55_exp0 ///
 nstrokes55to65_exp1=nstrokes55to65_exp1 ptime55to65_exp1=ptime55to65_exp1 ///
@@ -159,6 +159,10 @@ gen p_stroke80to85_exp1 = nstrokes80to85_exp1/(p_alive80_exp1*`N')
 gen p_stroke85to90_exp1 = nstrokes85to90_exp1/(p_alive85_exp1*`N')
 gen p_stroke90to95_exp1 = nstrokes90to95_exp1/(p_alive90_exp1*`N')
 
+*get ln(IRR)
+foreach x in 45to55 55to65 65to75 75to85 85to95 {
+gen strokelnIRR`x' = ln(strokeIRR`x')
+}
 
 *scalars for means
 foreach x in N_exp1 N_exp0 ///
@@ -237,7 +241,15 @@ p_stroke45to50_exp1 p_stroke50to55_exp1 ///
 p_stroke55to60_exp1 p_stroke60to65_exp1 ///
 p_stroke65to70_exp1 p_stroke70to75_exp1 ///
 p_stroke75to80_exp1 p_stroke80to85_exp1 ///
-p_stroke85to90_exp1 p_stroke90to95_exp1 {
+p_stroke85to90_exp1 p_stroke90to95_exp1 ///
+strokelnIRR45to55 strokelnIRR55to65 ///
+strokelnIRR65to75 strokelnIRR75to85 ///
+strokelnIRR85to95 ///
+strokelnIRR45to55_SE strokeIRD45to55_SE ///
+strokelnIRR55to65_SE strokeIRD55to65_SE ///
+strokelnIRR65to75_SE strokeIRD65to75_SE ///
+strokelnIRR75to85_SE strokeIRD75to85_SE ///
+strokelnIRR85to95_SE strokeIRD85to95_SE {
 summarize `x', meanonly
 scalar mean_`x' = round(r(mean),0.001)
 }
@@ -286,28 +298,33 @@ scalar p_`x' = r(mean)
 
 /***IRR results***/
 putexcel A1=("Scenario") ///
-B1=("IRR 45to55") C1=("empSE(IRR 45to55)") D1=("IRR 55to65") E1=("empSE(IRR 55to65)") ///
-F1=("IRR 65to75") G1=("empSE(IRR 65to75)") H1=("IRR 75to85") I1=("empSE(IRR 75to85)") ///
-J1=("IRR 85to95") K1=("empSE(IRR 85to95)") ///
+B1=("IRR 45to55") C1=("strokelnIRR45to55") D1=("empSE(IRR 45to55)") E1=("avgSE(lnIRR 45to55)") ///
+F1=("IRR 55to65") G1=("strokelnIRR55to65") H1=("empSE(IRR 55to65)") I1=("avgSE(lnIRR 55to65)") ///
+J1=("IRR 65to75") K1=("strokelnIRR65to75") L1=("empSE(IRR 65to75)") M1=("avgSE(lnIRR 65to75)") ///
+N1=("IRR 75to85") O1=("strokelnIRR75to85") P1=("empSE(IRR 75to85)") Q1=("avgSE(lnIRR 75to85)") ///
+R1=("IRR 85to95") S1=("strokelnIRR85to95") T1=("empSE(IRR 85to95)") U1=("avgSE(lnIRR 85to9)") ///
 A2=("$causalscenario") ///
-B2=(mean_strokeIRR45to55) C2=(empSE_strokeIRR45to55) D2=(mean_strokeIRR55to65) E2=(empSE_strokeIRR55to65) ///
-F2=(mean_strokeIRR65to75) G2=(empSE_strokeIRR65to75) H2=(mean_strokeIRR75to85) I2=(empSE_strokeIRR75to85) ///
-J2=(mean_strokeIRR85to95) K2=(empSE_strokeIRR85to95) ///
+B2=(mean_strokeIRR45to55) C2=(mean_strokelnIRR45to55) D2=(empSE_strokeIRR45to55) E2=(mean_strokelnIRR45to55_SE) ///
+F2=(mean_strokeIRR55to65) G2=(mean_strokelnIRR55to65) H2=(empSE_strokeIRR55to65) I2=(mean_strokelnIRR55to65_SE) ///
+J2=(mean_strokeIRR65to75) K2=(mean_strokelnIRR65to75) L2=(empSE_strokeIRR65to75) M2=(mean_strokelnIRR65to75_SE) ///
+N2=(mean_strokeIRR75to85) O2=(mean_strokelnIRR75to85) P2=(empSE_strokeIRR75to85) Q2=(mean_strokelnIRR75to85_SE) ///
+R2=(mean_strokeIRR85to95) S2=(mean_strokelnIRR85to95) T2=(empSE_strokeIRR85to95) U2=(mean_strokelnIRR85to95_SE) ///
 using SimulationResults_N`N_rounded'_B`B', sheet("Stroke_IRR") modify
 
 
 /***IRD results***/
 putexcel A1=("Scenario") ///
-B1=("IRD 45to55") C1=("empSE(IRD 45to55)") D1=("IRD 55to65") ///
-E1=("empSE(IRD 55to65)") F1=("IRD 65to75") G1=("empSE(IRD 65to75)") ///
-H1=("IRD 75to85") I1=("empSE(IRD 75to85)") J1=("IRD 85to95") ///
-K1=("empSE(IRD 85to95)") ///
+B1=("IRD 45to55") C1=("empSE(IRD 45to55)") D1=("avgSE(IRD 45to55)") ///
+E1=("IRD 55to65") F1=("empSE(IRD 55to65)") G1=("avgSE(IRD 55to65)") ///
+H1=("IRD 65to75") I1=("empSE(IRD 65to75)") J1=("avgSE(IRD 65to75)") ///
+K1=("IRD 75to85") L1=("empSE(IRD 75to85)") M1=("avgSE(IRD 75to85)") ///
+N1=("IRD 85to95") O1=("empSE(IRD 85to95)") P1=("avgSE(IRD 85to95)") ///
 A2=("$causalscenario") ///
-B2=(mean_strokeIRD45to55) C2=(empSE_strokeIRD45to55) D2=(mean_strokeIRD55to65) ///
-E2=(empSE_strokeIRD55to65) F2=(mean_strokeIRD65to75) ///
-G2=(empSE_strokeIRD65to75) H2=(mean_strokeIRD75to85) ///
-I2=(empSE_strokeIRD75to85) J2=(mean_strokeIRD85to95) ///
-K2=(empSE_strokeIRD85to95) ///
+B2=(mean_strokeIRD45to55) C2=(empSE_strokeIRD45to55) D2=(mean_strokeIRD45to55_SE) ///
+E2=(mean_strokeIRD55to65) F2=(empSE_strokeIRD55to65) G2=(mean_strokeIRD55to65_SE) ///
+H2=(mean_strokeIRD65to75) I2=(empSE_strokeIRD65to75) J2=(mean_strokeIRD65to75_SE) ///
+K2=(mean_strokeIRD75to85) L2=(empSE_strokeIRD75to85) M2=(mean_strokeIRD75to85_SE) ///
+N2=(mean_strokeIRD85to95) O2=(empSE_strokeIRD85to95) P2=(mean_strokeIRD85to95_SE) ///
 using SimulationResults_N`N_rounded'_B`B', sheet("Stroke_IRD") modify
 
 
