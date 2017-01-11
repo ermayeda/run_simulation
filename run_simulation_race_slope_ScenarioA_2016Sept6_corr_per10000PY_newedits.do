@@ -506,32 +506,32 @@ save "C:\Users\emayeda\Dropbox\ERMayeda\each_sim_results_$causalscenario.dta", r
 twoway (histogram meanUatrisk0_exp0, fcolor(none) lcolor(blue)) ///
        (histogram meanUatrisk0_exp1, fcolor(none) lcolor(red)), ///
 	   xlabel(-1.5(0.5)1.5) legend(order(1 "white" 2 "black")) graphregion(fcolor(white)) title("$causalscenario: mean U at risk, birth", color(black) size(med))
-	   graph save Graph "C:\Users\emayeda\Dropbox\ERMayeda\Disparities_simulations\Stata\meanUhistogram0_$causalscenario.gph", replace
+	   graph save Graph "meanUhistogram0_$causalscenario.gph", replace
 
 twoway (histogram meanUatrisk45_exp0, fcolor(none) lcolor(blue)) ///
        (histogram meanUatrisk45_exp1, fcolor(none) lcolor(red)), ///
 	   xlabel(-1.5(0.5)1.5) legend(order(1 "white" 2 "black")) graphregion(fcolor(white)) title("$causalscenario: mean U at risk, age 45", color(black) size(med))
-	   graph save Graph "C:\Users\emayeda\Dropbox\ERMayeda\Disparities_simulations\Stata\meanUhistogram45_$causalscenario.gph", replace
+	   graph save Graph "meanUhistogram45_$causalscenario.gph", replace
     
 twoway (histogram meanUatrisk55_exp0, fcolor(none) lcolor(blue)) ///
        (histogram meanUatrisk55_exp1, fcolor(none) lcolor(red)), ///
 	   xlabel(-1.5(0.5)1.5) legend(order(1 "white" 2 "black")) graphregion(fcolor(white)) title("$causalscenario: mean U at risk, age 55", color(black) size(med))
-	   graph save Graph "C:\Users\emayeda\Dropbox\ERMayeda\Disparities_simulations\Stata\meanUhistogram55_$causalscenario.gph", replace	   
+	   graph save Graph "meanUhistogram55_$causalscenario.gph", replace	   
 	   
 twoway (histogram meanUatrisk65_exp0, fcolor(none) lcolor(blue)) ///
        (histogram meanUatrisk65_exp1, fcolor(none) lcolor(red)), ///
 	   xlabel(-1.5(0.5)1.5) legend(order(1 "white" 2 "black")) graphregion(fcolor(white)) title("$causalscenario: mean U at risk, age 65", color(black) size(med))
-	   graph save Graph "C:\Users\emayeda\Dropbox\ERMayeda\Disparities_simulations\Stata\meanUhistogram65_$causalscenario.gph", replace
+	   graph save Graph "meanUhistogram65_$causalscenario.gph", replace
 	   
 twoway (histogram meanUatrisk75_exp0, fcolor(none) lcolor(blue)) ///
        (histogram meanUatrisk75_exp1, fcolor(none) lcolor(red)), ///
 	   xlabel(-1.5(0.5)1.5) legend(order(1 "white" 2 "black")) graphregion(fcolor(white)) title("$causalscenario: mean U at risk, age 75", color(black) size(med))
-	   graph save Graph "C:\Users\emayeda\Dropbox\ERMayeda\Disparities_simulations\Stata\meanUhistogram75_$causalscenario.gph", replace
+	   graph save Graph "meanUhistogram75_$causalscenario.gph", replace
 	   
 twoway (histogram meanUatrisk85_exp0, fcolor(none) lcolor(blue)) ///
        (histogram meanUatrisk85_exp1, fcolor(none) lcolor(red)), ///
 	   xlabel(-1.5(0.5)1.5) legend(order(1 "white" 2 "black")) graphregion(fcolor(white)) title("$causalscenario: mean U at risk, age 85", color(black) size(med))
-	   graph save Graph "C:\Users\emayeda\Dropbox\ERMayeda\Disparities_simulations\Stata\meanUhistogram85_$causalscenario.gph", replace
+	   graph save Graph "meanUhistogram85_$causalscenario.gph", replace
  
  
 di "$S_TIME"
