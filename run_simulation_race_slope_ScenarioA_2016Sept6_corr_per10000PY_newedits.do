@@ -462,11 +462,11 @@ O1=("N strokes 60-65 black") P1=("N strokes 65-70 black") Q1=("N strokes 70-75 b
 R1=("N strokes 75-80 black") S1=("N strokes 80-85 black") T1=("N strokes 85-90 black") ///
 U1=("N strokes 90-95 black") ///
 A$outputrow=("$causalscenario") ///
-B$outputrow=(mean_nstrokes45to50_exp0) C2=(mean_nstrokes50to55_exp0) D2=(mean_nstrokes55to60_exp0) ///
-E$outputrow=(mean_nstrokes60to65_exp0) F2=(mean_nstrokes65to70_exp0) G2=(mean_nstrokes70to75_exp0) ///
-H$outputrow=(mean_nstrokes75to80_exp0) I2=(mean_nstrokes80to85_exp0) J2=(mean_nstrokes85to90_exp0) ///
+B$outputrow=(mean_nstrokes45to50_exp0) C$outputrow=(mean_nstrokes50to55_exp0) D$outputrow=(mean_nstrokes55to60_exp0) ///
+E$outputrow=(mean_nstrokes60to65_exp0) F$outputrow=(mean_nstrokes65to70_exp0) G$outputrow=(mean_nstrokes70to75_exp0) ///
+H$outputrow=(mean_nstrokes75to80_exp0) I$outputrow=(mean_nstrokes80to85_exp0) J$outputrow=(mean_nstrokes85to90_exp0) ///
 K$outputrow=(mean_nstrokes90to95_exp0) ///
-L$outputrow=(mean_nstrokes45to50_exp1) M$outputrow$outputrow=(mean_nstrokes50to55_exp1) N$outputrow=(mean_nstrokes55to60_exp1) ///
+L$outputrow=(mean_nstrokes45to50_exp1) M$outputrow=(mean_nstrokes50to55_exp1) N$outputrow=(mean_nstrokes55to60_exp1) ///
 O$outputrow=(mean_nstrokes60to65_exp1) P$outputrow=(mean_nstrokes65to70_exp1) Q$outputrow=(mean_nstrokes70to75_exp1) ///
 R$outputrow=(mean_nstrokes75to80_exp1) S$outputrow=(mean_nstrokes80to85_exp1) T$outputrow=(mean_nstrokes85to90_exp1) ///
 U$outputrow=(mean_nstrokes90to95_exp1) ///
