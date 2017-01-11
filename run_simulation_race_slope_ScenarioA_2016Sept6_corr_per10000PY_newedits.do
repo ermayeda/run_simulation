@@ -499,7 +499,7 @@ using SimulationResults_N`N_rounded'_B`B', sheet("Pstroke") modify
 export excel using EachSimulationResults_N`N_rounded'_B`B', sheet("$causalscenario") sheetmodify firstrow(variables)
 
 /***save data***/
-save "C:\Users\emayeda\Dropbox\ERMayeda\each_sim_results_$causalscenario.dta", replace
+save "each_sim_results_$causalscenario.dta", replace
 
 
 /***histograms***/
