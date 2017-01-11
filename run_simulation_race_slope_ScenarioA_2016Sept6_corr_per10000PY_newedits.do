@@ -88,7 +88,7 @@ nstrokes55to60_exp1=nstrokes55to60_exp1 nstrokes60to65_exp1=nstrokes60to65_exp1 
 nstrokes65to70_exp1=nstrokes65to70_exp1 nstrokes70to75_exp1=nstrokes70to75_exp1 ///
 nstrokes75to80_exp1=nstrokes75to80_exp1 nstrokes80to85_exp1=nstrokes80to85_exp1 ///
 nstrokes85to90_exp1=nstrokes85to90_exp1 nstrokes90to95_exp1=nstrokes90to95_exp1, ///
-reps(`B') seed(67208113): do stroke_disparities_data_generation_analysis
+reps(`B') seed(67208113): do data_generation_analysis
 
 *number of individuals
 local N = N
