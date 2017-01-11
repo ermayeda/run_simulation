@@ -307,7 +307,7 @@ F1=("IRR 55to65") G1=("strokelnIRR55to65") H1=("empSE(IRR 55to65)") I1=("avgSE(l
 J1=("IRR 65to75") K1=("strokelnIRR65to75") L1=("empSE(IRR 65to75)") M1=("avgSE(lnIRR 65to75)") ///
 N1=("IRR 75to85") O1=("strokelnIRR75to85") P1=("empSE(IRR 75to85)") Q1=("avgSE(lnIRR 75to85)") ///
 R1=("IRR 85to95") S1=("strokelnIRR85to95") T1=("empSE(IRR 85to95)") U1=("avgSE(lnIRR 85to9)") ///
-A2=("$causalscenario") ///
+A$outputrow=("$causalscenario") ///
 B$outputrow=(mean_strokeIRR45to55) C$outputrow=(mean_strokelnIRR45to55) D$outputrow=(empSE_strokeIRR45to55) E$outputrow=(mean_strokelnIRR45to55_SE) ///
 F$outputrow=(mean_strokeIRR55to65) G$outputrow=(mean_strokelnIRR55to65) H$outputrow=(empSE_strokeIRR55to65) I$outputrow=(mean_strokelnIRR55to65_SE) ///
 J$outputrow=(mean_strokeIRR65to75) K$outputrow=(mean_strokelnIRR65to75) L$outputrow=(empSE_strokeIRR65to75) M$outputrow=(mean_strokelnIRR65to75_SE) ///
@@ -323,7 +323,7 @@ E1=("IRD 55to65") F1=("empSE(IRD 55to65)") G1=("avgSE(IRD 55to65)") ///
 H1=("IRD 65to75") I1=("empSE(IRD 65to75)") J1=("avgSE(IRD 65to75)") ///
 K1=("IRD 75to85") L1=("empSE(IRD 75to85)") M1=("avgSE(IRD 75to85)") ///
 N1=("IRD 85to95") O1=("empSE(IRD 85to95)") P1=("avgSE(IRD 85to95)") ///
-A2=("$causalscenario") ///
+A$outputrow=("$causalscenario") ///
 B$outputrow=(mean_strokeIRD45to55) C$outputrow=(empSE_strokeIRD45to55) D$outputrow=(mean_strokeIRD45to55_SE) ///
 E$outputrow=(mean_strokeIRD55to65) F$outputrow=(empSE_strokeIRD55to65) G$outputrow=(mean_strokeIRD55to65_SE) ///
 H$outputrow=(mean_strokeIRD65to75) I$outputrow=(empSE_strokeIRD65to75) J$outputrow=(mean_strokeIRD65to75_SE) ///
