@@ -11,6 +11,10 @@ capture log close
 
 
 local B = $B //number of simulations
+/*other global vars called in this program:
+outputrow //output row for summarized simulation results
+causalscenario //where 1=A, 2=B, 3=C*/
+
 
 simulate ///
 N=N N_exp1=N_exp1 N_exp0=N_exp0 ///
@@ -304,11 +308,11 @@ J1=("IRR 65to75") K1=("strokelnIRR65to75") L1=("empSE(IRR 65to75)") M1=("avgSE(l
 N1=("IRR 75to85") O1=("strokelnIRR75to85") P1=("empSE(IRR 75to85)") Q1=("avgSE(lnIRR 75to85)") ///
 R1=("IRR 85to95") S1=("strokelnIRR85to95") T1=("empSE(IRR 85to95)") U1=("avgSE(lnIRR 85to9)") ///
 A2=("$causalscenario") ///
-B2=(mean_strokeIRR45to55) C2=(mean_strokelnIRR45to55) D2=(empSE_strokeIRR45to55) E2=(mean_strokelnIRR45to55_SE) ///
-F2=(mean_strokeIRR55to65) G2=(mean_strokelnIRR55to65) H2=(empSE_strokeIRR55to65) I2=(mean_strokelnIRR55to65_SE) ///
-J2=(mean_strokeIRR65to75) K2=(mean_strokelnIRR65to75) L2=(empSE_strokeIRR65to75) M2=(mean_strokelnIRR65to75_SE) ///
-N2=(mean_strokeIRR75to85) O2=(mean_strokelnIRR75to85) P2=(empSE_strokeIRR75to85) Q2=(mean_strokelnIRR75to85_SE) ///
-R2=(mean_strokeIRR85to95) S2=(mean_strokelnIRR85to95) T2=(empSE_strokeIRR85to95) U2=(mean_strokelnIRR85to95_SE) ///
+B$outputrow=(mean_strokeIRR45to55) C$outputrow=(mean_strokelnIRR45to55) D$outputrow=(empSE_strokeIRR45to55) E$outputrow=(mean_strokelnIRR45to55_SE) ///
+F$outputrow=(mean_strokeIRR55to65) G$outputrow=(mean_strokelnIRR55to65) H$outputrow=(empSE_strokeIRR55to65) I$outputrow=(mean_strokelnIRR55to65_SE) ///
+J$outputrow=(mean_strokeIRR65to75) K$outputrow=(mean_strokelnIRR65to75) L$outputrow=(empSE_strokeIRR65to75) M$outputrow=(mean_strokelnIRR65to75_SE) ///
+N$outputrow=(mean_strokeIRR75to85) O$outputrow=(mean_strokelnIRR75to85) P$outputrow=(empSE_strokeIRR75to85) Q$outputrow=(mean_strokelnIRR75to85_SE) ///
+R$outputrow=(mean_strokeIRR85to95) S$outputrow=(mean_strokelnIRR85to95) T$outputrow=(empSE_strokeIRR85to95) U$outputrow=(mean_strokelnIRR85to95_SE) ///
 using SimulationResults_N`N_rounded'_B`B', sheet("Stroke_IRR") modify
 
 
@@ -320,11 +324,11 @@ H1=("IRD 65to75") I1=("empSE(IRD 65to75)") J1=("avgSE(IRD 65to75)") ///
 K1=("IRD 75to85") L1=("empSE(IRD 75to85)") M1=("avgSE(IRD 75to85)") ///
 N1=("IRD 85to95") O1=("empSE(IRD 85to95)") P1=("avgSE(IRD 85to95)") ///
 A2=("$causalscenario") ///
-B2=(mean_strokeIRD45to55) C2=(empSE_strokeIRD45to55) D2=(mean_strokeIRD45to55_SE) ///
-E2=(mean_strokeIRD55to65) F2=(empSE_strokeIRD55to65) G2=(mean_strokeIRD55to65_SE) ///
-H2=(mean_strokeIRD65to75) I2=(empSE_strokeIRD65to75) J2=(mean_strokeIRD65to75_SE) ///
-K2=(mean_strokeIRD75to85) L2=(empSE_strokeIRD75to85) M2=(mean_strokeIRD75to85_SE) ///
-N2=(mean_strokeIRD85to95) O2=(empSE_strokeIRD85to95) P2=(mean_strokeIRD85to95_SE) ///
+B$outputrow=(mean_strokeIRD45to55) C$outputrow=(empSE_strokeIRD45to55) D$outputrow=(mean_strokeIRD45to55_SE) ///
+E$outputrow=(mean_strokeIRD55to65) F$outputrow=(empSE_strokeIRD55to65) G$outputrow=(mean_strokeIRD55to65_SE) ///
+H$outputrow=(mean_strokeIRD65to75) I$outputrow=(empSE_strokeIRD65to75) J$outputrow=(mean_strokeIRD65to75_SE) ///
+K$outputrow=(mean_strokeIRD75to85) L$outputrow=(empSE_strokeIRD75to85) M$outputrow=(mean_strokeIRD75to85_SE) ///
+N$outputrow=(mean_strokeIRD85to95) O$outputrow=(empSE_strokeIRD85to95) P$outputrow=(mean_strokeIRD85to95_SE) ///
 using SimulationResults_N`N_rounded'_B`B', sheet("Stroke_IRD") modify
 
 
@@ -335,12 +339,12 @@ D1=("IR/10000 PYs 65to75 whites") E1=("IR/10000 PYs 75to85 whites") ///
 F1=("IR/10000 PYs 85to95 whites") G1=("IR/10000 PYs 45to55 blacks") ///
 H1=("IR/10000 PYs 55to65 blacks") I1=("IR/10000 PYs 65to75 blacks") ///
 J1=("IR/10000 PYs 75to85 blacks") K1=("IR/1000 PYs 85to95 blacks") ///
-A2=("$causalscenario") ///
-B2=(mean_strokerate45to55_exp0) C2=(mean_strokerate55to65_exp0) ///
-D2=(mean_strokerate65to75_exp0) E2=(mean_strokerate75to85_exp0) ///
-F2=(mean_strokerate85to95_exp0) G2=(mean_strokerate45to55_exp1) ///
-H2=(mean_strokerate55to65_exp1) I2=(mean_strokerate65to75_exp1) ///
-J2=(mean_strokerate75to85_exp1) K2=(mean_strokerate85to95_exp1) ///
+A$outputrow=("$causalscenario") ///
+B$outputrow=(mean_strokerate45to55_exp0) C$outputrow=(mean_strokerate55to65_exp0) ///
+D$outputrow=(mean_strokerate65to75_exp0) E$outputrow=(mean_strokerate75to85_exp0) ///
+F$outputrow=(mean_strokerate85to95_exp0) G$outputrow=(mean_strokerate45to55_exp1) ///
+H$outputrow=(mean_strokerate55to65_exp1) I$outputrow=(mean_strokerate65to75_exp1) ///
+J$outputrow=(mean_strokerate75to85_exp1) K$outputrow=(mean_strokerate85to95_exp1) ///
 using SimulationResults_N`N_rounded'_B`B', sheet("Stroke_IR10000py") modify
 
 
@@ -356,17 +360,17 @@ N1=("# strokes 55to65 blacks") O1=("PYs 55to65 blacks") ///
 P1=("# strokes 65to75 blacks") Q1=("PYs 65to75 blacks") ///
 R1=("# strokes 75to85 blacks") S1=("PYs 75to85 blacks") ///
 T1=("# strokes 85to95 blacks") U1=("PYs 85to95 blacks") ///
-A2=("$causalscenario") ///
-B2=(mean_nstrokes45to55_exp0) C2=(mean_ptime45to55_exp0) ///
-D2=(mean_nstrokes55to65_exp0) E2=(mean_ptime55to65_exp0) ///
-F2=(mean_nstrokes65to75_exp0) G2=(mean_ptime65to75_exp0) ///
-H2=(mean_nstrokes75to85_exp0) I2=(mean_ptime75to85_exp0) ///
-J2=(mean_nstrokes85to95_exp0) K2=(mean_ptime85to95_exp0) ///
-L2=(mean_nstrokes45to55_exp1) M2=(mean_ptime45to55_exp1) ///
-N2=(mean_nstrokes55to65_exp1) O2=(mean_ptime55to65_exp1) ///
-P2=(mean_nstrokes65to75_exp1) Q2=(mean_ptime65to75_exp1) ///
-R2=(mean_nstrokes75to85_exp1) S2=(mean_ptime75to85_exp1) ///
-T2=(mean_nstrokes85to95_exp1) U2=(mean_ptime85to95_exp1) ///
+A$outputrow=("$causalscenario") ///
+B$outputrow=(mean_nstrokes45to55_exp0) C$outputrow=(mean_ptime45to55_exp0) ///
+D$outputrow=(mean_nstrokes55to65_exp0) E$outputrow=(mean_ptime55to65_exp0) ///
+F$outputrow=(mean_nstrokes65to75_exp0) G$outputrow=(mean_ptime65to75_exp0) ///
+H$outputrow=(mean_nstrokes75to85_exp0) I$outputrow=(mean_ptime75to85_exp0) ///
+J$outputrow=(mean_nstrokes85to95_exp0) K$outputrow=(mean_ptime85to95_exp0) ///
+L$outputrow=(mean_nstrokes45to55_exp1) M$outputrow=(mean_ptime45to55_exp1) ///
+N$outputrow=(mean_nstrokes55to65_exp1) O$outputrow=(mean_ptime55to65_exp1) ///
+P$outputrow=(mean_nstrokes65to75_exp1) Q$outputrow=(mean_ptime65to75_exp1) ///
+R$outputrow=(mean_nstrokes75to85_exp1) S$outputrow=(mean_ptime75to85_exp1) ///
+T$outputrow=(mean_nstrokes85to95_exp1) U$outputrow=(mean_ptime85to95_exp1) ///
 using SimulationResults_N`N_rounded'_B`B', sheet("Nstks_PYs") modify
 
 
@@ -386,21 +390,21 @@ T1=("P alive age 60 blacks") U1=("P alive age 65 blacks") ///
 V1=("P alive age 70 blacks") W1=("P alive age 75 blacks") ///
 X1=("P alive age 80 blacks") Y1=("P alive age 85 blacks") ///
 Z1=("P alive age 90 blacks") AA1=("P alive age 95 blacks") ///
-A2=("$causalscenario") ///
-B2=(mean_N_exp0) ///
-C2=(mean_med_survage_exp0) D2=(mean_p_alive45_exp0) ///
-E2=(mean_p_alive50_exp0) F2=(mean_p_alive55_exp0) ///
-G2=(mean_p_alive60_exp0) H2=(mean_p_alive65_exp0) ///
-I2=(mean_p_alive70_exp0) J2=(mean_p_alive75_exp0) ///
-K2=(mean_p_alive80_exp0) L2=(mean_p_alive85_exp0) ///
-M2=(mean_p_alive90_exp0) N2=(mean_p_alive95_exp0) ///
-O2=(mean_N_exp1) ///
-P2=(mean_med_survage_exp1) Q2=(mean_p_alive45_exp1) ///
-R2=(mean_p_alive50_exp1) S2=(mean_p_alive55_exp1) ///
-T2=(mean_p_alive60_exp1) U2=(mean_p_alive65_exp1) ///
-V2=(mean_p_alive70_exp1) W2=(mean_p_alive75_exp1) ///
-X2=(mean_p_alive80_exp1) Y2=(mean_p_alive85_exp1) ///
-Z2=(mean_p_alive90_exp1) AA2=(mean_p_alive95_exp1) ///
+A$outputrow=("$causalscenario") ///
+B$outputrow=(mean_N_exp0) ///
+C$outputrow=(mean_med_survage_exp0) D$outputrow=(mean_p_alive45_exp0) ///
+E$outputrow=(mean_p_alive50_exp0) F$outputrow=(mean_p_alive55_exp0) ///
+G$outputrow=(mean_p_alive60_exp0) H$outputrow=(mean_p_alive65_exp0) ///
+I$outputrow=(mean_p_alive70_exp0) J$outputrow=(mean_p_alive75_exp0) ///
+K$outputrow=(mean_p_alive80_exp0) L$outputrow=(mean_p_alive85_exp0) ///
+M$outputrow=(mean_p_alive90_exp0) N$outputrow=(mean_p_alive95_exp0) ///
+O$outputrow=(mean_N_exp1) ///
+P$outputrow=(mean_med_survage_exp1) Q$outputrow=(mean_p_alive45_exp1) ///
+R$outputrow=(mean_p_alive50_exp1) S$outputrow=(mean_p_alive55_exp1) ///
+T$outputrow=(mean_p_alive60_exp1) U$outputrow=(mean_p_alive65_exp1) ///
+V$outputrow=(mean_p_alive70_exp1) W$outputrow=(mean_p_alive75_exp1) ///
+X$outputrow=(mean_p_alive80_exp1) Y$outputrow=(mean_p_alive85_exp1) ///
+Z$outputrow=(mean_p_alive90_exp1) AA$outputrow=(mean_p_alive95_exp1) ///
 using SimulationResults_N`N_rounded'_B`B', sheet("Surv") modify
 
 
@@ -414,15 +418,15 @@ M1=("mean U at risk birth black") N2=(mean_meanUatrisk0_exp0)  O1=("mean U at ri
 R1=("mean U at risk 60 black") S1=("mean U at risk 65 black") T1=("mean U at risk 70 black") ///
 U1=("mean U at risk 75 black") V1=("mean U at risk 80 black") W1=("mean U at risk 85 black") ///
 X1=("mean U at risk 90 black") ///
-A2=("$causalscenario") ///
-B2=(mean_meanUatrisk0_exp0)  C2=(mean_meanUatrisk45_exp0) D2=(mean_meanUatrisk50_exp0) E2=(mean_meanUatrisk55_exp0) ///
-F2=(mean_meanUatrisk60_exp0) G2=(mean_meanUatrisk65_exp0) H2=(mean_meanUatrisk70_exp0) ///
-I2=(mean_meanUatrisk75_exp0) J2=(mean_meanUatrisk80_exp0) K2=(mean_meanUatrisk85_exp0) ///
-L2=(mean_meanUatrisk90_exp0) ///
-M2=(mean_meanUatrisk0_exp1) N2=(mean_meanUatrisk45_exp1) O2=(mean_meanUatrisk50_exp1) P2=(mean_meanUatrisk55_exp1) ///
-Q2=(mean_meanUatrisk60_exp1) R2=(mean_meanUatrisk65_exp1) S2=(mean_meanUatrisk70_exp1) ///
-T2=(mean_meanUatrisk75_exp1) U2=(mean_meanUatrisk80_exp1) V2=(mean_meanUatrisk85_exp1) ///
-W2=(mean_meanUatrisk90_exp1) ///
+A$outputrow=("$causalscenario") ///
+B$outputrow=(mean_meanUatrisk0_exp0)  C$outputrow=(mean_meanUatrisk45_exp0) D$outputrow=(mean_meanUatrisk50_exp0) E$outputrow=(mean_meanUatrisk55_exp0) ///
+F$outputrow=(mean_meanUatrisk60_exp0) G$outputrow=(mean_meanUatrisk65_exp0) H$outputrow=(mean_meanUatrisk70_exp0) ///
+I$outputrow=(mean_meanUatrisk75_exp0) J$outputrow=(mean_meanUatrisk80_exp0) K$outputrow=(mean_meanUatrisk85_exp0) ///
+L$outputrow=(mean_meanUatrisk90_exp0) ///
+M$outputrow=(mean_meanUatrisk0_exp1) N$outputrow=(mean_meanUatrisk45_exp1) O$outputrow=(mean_meanUatrisk50_exp1) P$outputrow=(mean_meanUatrisk55_exp1) ///
+Q$outputrow=(mean_meanUatrisk60_exp1) R$outputrow=(mean_meanUatrisk65_exp1) S$outputrow=(mean_meanUatrisk70_exp1) ///
+T$outputrow=(mean_meanUatrisk75_exp1) U$outputrow=(mean_meanUatrisk80_exp1) V$outputrow=(mean_meanUatrisk85_exp1) ///
+W$outputrow=(mean_meanUatrisk90_exp1) ///
 using SimulationResults_N`N_rounded'_B`B', sheet("meanUatrisk") modify
 
 
@@ -436,15 +440,15 @@ L1=("N at risk 45 black") M1=("N at risk 50black") N1=("N at risk 55 black") ///
 O1=("N at risk 60 black") P1=("N at risk 65black") Q1=("N at risk 70 black") ///
 R1=("N at risk 75 black") S1=("N at risk 80black") T1=("N at risk 85 black") ///
 U1=("N at risk 90 black") ///
-A2=("$causalscenario") ///
- B2=(mean_Natrisk45_exp0) C2=(mean_Natrisk50_exp0) D2=(mean_Natrisk55_exp0) ///
-E2=(mean_Natrisk60_exp0) F2=(mean_Natrisk65_exp0) G2=(mean_Natrisk70_exp0) ///
-H2=(mean_Natrisk75_exp0) I2=(mean_Natrisk80_exp0) J2=(mean_Natrisk85_exp0) ///
-K2=(mean_Natrisk90_exp0) ///
-L2=(mean_Natrisk45_exp1) M2=(mean_Natrisk50_exp1) N2=(mean_Natrisk55_exp1) ///
-O2=(mean_Natrisk60_exp1) P2=(mean_Natrisk65_exp1) Q2=(mean_Natrisk70_exp1) ///
-R2=(mean_Natrisk75_exp1) S2=(mean_Natrisk80_exp1) T2=(mean_Natrisk85_exp1) ///
-U2=(mean_Natrisk90_exp1) ///
+A$outputrow=("$causalscenario") ///
+B$outputrow=(mean_Natrisk45_exp0) C$outputrow=(mean_Natrisk50_exp0) D$outputrow=(mean_Natrisk55_exp0) ///
+E$outputrow=(mean_Natrisk60_exp0) F$outputrow=(mean_Natrisk65_exp0) G$outputrow=(mean_Natrisk70_exp0) ///
+H$outputrow=(mean_Natrisk75_exp0) I$outputrow=(mean_Natrisk80_exp0) J$outputrow=(mean_Natrisk85_exp0) ///
+K$outputrow=(mean_Natrisk90_exp0) ///
+L$outputrow=(mean_Natrisk45_exp1) M$outputrow=(mean_Natrisk50_exp1) N$outputrow=(mean_Natrisk55_exp1) ///
+O$outputrow=(mean_Natrisk60_exp1) P$outputrow=(mean_Natrisk65_exp1) Q$outputrow=(mean_Natrisk70_exp1) ///
+R$outputrow=(mean_Natrisk75_exp1) S$outputrow=(mean_Natrisk80_exp1) T$outputrow=(mean_Natrisk85_exp1) ///
+U$outputrow=(mean_Natrisk90_exp1) ///
 using SimulationResults_N`N_rounded'_B`B', sheet("Natrisk") modify
 
 /*N strokes at risk at each age*/
@@ -457,15 +461,15 @@ L1=("N strokes 45-50 black") M1=("N strokes 50-55 black") N1=("N strokes 55-60 b
 O1=("N strokes 60-65 black") P1=("N strokes 65-70 black") Q1=("N strokes 70-75 black") ///
 R1=("N strokes 75-80 black") S1=("N strokes 80-85 black") T1=("N strokes 85-90 black") ///
 U1=("N strokes 90-95 black") ///
-A2=("$causalscenario") ///
-B2=(mean_nstrokes45to50_exp0) C2=(mean_nstrokes50to55_exp0) D2=(mean_nstrokes55to60_exp0) ///
-E2=(mean_nstrokes60to65_exp0) F2=(mean_nstrokes65to70_exp0) G2=(mean_nstrokes70to75_exp0) ///
-H2=(mean_nstrokes75to80_exp0) I2=(mean_nstrokes80to85_exp0) J2=(mean_nstrokes85to90_exp0) ///
-K2=(mean_nstrokes90to95_exp0) ///
-L2=(mean_nstrokes45to50_exp1) M2=(mean_nstrokes50to55_exp1) N2=(mean_nstrokes55to60_exp1) ///
-O2=(mean_nstrokes60to65_exp1) P2=(mean_nstrokes65to70_exp1) Q2=(mean_nstrokes70to75_exp1) ///
-R2=(mean_nstrokes75to80_exp1) S2=(mean_nstrokes80to85_exp1) T2=(mean_nstrokes85to90_exp1) ///
-U2=(mean_nstrokes90to95_exp1) ///
+A$outputrow=("$causalscenario") ///
+B$outputrow=(mean_nstrokes45to50_exp0) C2=(mean_nstrokes50to55_exp0) D2=(mean_nstrokes55to60_exp0) ///
+E$outputrow=(mean_nstrokes60to65_exp0) F2=(mean_nstrokes65to70_exp0) G2=(mean_nstrokes70to75_exp0) ///
+H$outputrow=(mean_nstrokes75to80_exp0) I2=(mean_nstrokes80to85_exp0) J2=(mean_nstrokes85to90_exp0) ///
+K$outputrow=(mean_nstrokes90to95_exp0) ///
+L$outputrow=(mean_nstrokes45to50_exp1) M$outputrow$outputrow=(mean_nstrokes50to55_exp1) N$outputrow=(mean_nstrokes55to60_exp1) ///
+O$outputrow=(mean_nstrokes60to65_exp1) P$outputrow=(mean_nstrokes65to70_exp1) Q$outputrow=(mean_nstrokes70to75_exp1) ///
+R$outputrow=(mean_nstrokes75to80_exp1) S$outputrow=(mean_nstrokes80to85_exp1) T$outputrow=(mean_nstrokes85to90_exp1) ///
+U$outputrow=(mean_nstrokes90to95_exp1) ///
 using SimulationResults_N`N_rounded'_B`B', sheet("Nstrokes") modify
 
 /*P strokes at risk at each age*/
@@ -478,15 +482,15 @@ L1=("P strokes 45-50 black") M1=("P strokes 50-55 black") N1=("P strokes 55-60 b
 O1=("P strokes 60-65 black") P1=("P strokes 65-70 black") Q1=("P strokes 70-75 black") ///
 R1=("P strokes 75-80 black") S1=("P strokes 80-85 black") T1=("P strokes 85-90 black") ///
 U1=("P strokes 90-95 black") ///
-A2=("$causalscenario") ///
-B2=(mean_p_stroke45to50_exp0) C2=(mean_p_stroke50to55_exp0) D2=(mean_p_stroke55to60_exp0) ///
-E2=(mean_p_stroke60to65_exp0) F2=(mean_p_stroke65to70_exp0) G2=(mean_p_stroke70to75_exp0) ///
-H2=(mean_p_stroke75to80_exp0) I2=(mean_p_stroke80to85_exp0) J2=(mean_p_stroke85to90_exp0) ///
-K2=(mean_p_stroke90to95_exp0) ///
-L2=(mean_p_stroke45to50_exp1) M2=(mean_p_stroke50to55_exp1) N2=(mean_p_stroke55to60_exp1) ///
-O2=(mean_p_stroke60to65_exp1) P2=(mean_p_stroke65to70_exp1) Q2=(mean_p_stroke70to75_exp1) ///
-R2=(mean_p_stroke75to80_exp1) S2=(mean_p_stroke80to85_exp1) T2=(mean_p_stroke85to90_exp1) ///
-U2=(mean_p_stroke90to95_exp1) ///
+A$outputrow=("$causalscenario") ///
+B$outputrow=(mean_p_stroke45to50_exp0) C$outputrow=(mean_p_stroke50to55_exp0) D$outputrow=(mean_p_stroke55to60_exp0) ///
+E$outputrow=(mean_p_stroke60to65_exp0) F$outputrow=(mean_p_stroke65to70_exp0) G$outputrow=(mean_p_stroke70to75_exp0) ///
+H$outputrow=(mean_p_stroke75to80_exp0) I$outputrow=(mean_p_stroke80to85_exp0) J$outputrow=(mean_p_stroke85to90_exp0) ///
+K$outputrow=(mean_p_stroke90to95_exp0) ///
+L$outputrow=(mean_p_stroke45to50_exp1) M$outputrow=(mean_p_stroke50to55_exp1) N$outputrow=(mean_p_stroke55to60_exp1) ///
+O$outputrow=(mean_p_stroke60to65_exp1) P$outputrow=(mean_p_stroke65to70_exp1) Q$outputrow=(mean_p_stroke70to75_exp1) ///
+R$outputrow=(mean_p_stroke75to80_exp1) S$outputrow=(mean_p_stroke80to85_exp1) T$outputrow=(mean_p_stroke85to90_exp1) ///
+U$outputrow=(mean_p_stroke90to95_exp1) ///
 using SimulationResults_N`N_rounded'_B`B', sheet("Pstroke") modify
 
 
