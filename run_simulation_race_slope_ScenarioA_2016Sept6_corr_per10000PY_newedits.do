@@ -163,10 +163,10 @@ gen p_stroke80to85_exp1 = nstrokes80to85_exp1/(p_alive80_exp1*`N')
 gen p_stroke85to90_exp1 = nstrokes85to90_exp1/(p_alive85_exp1*`N')
 gen p_stroke90to95_exp1 = nstrokes90to95_exp1/(p_alive90_exp1*`N')
 
-*get ln(IRR)
+/*get ln(IRR)
 foreach x in 45to55 55to65 65to75 75to85 85to95 {
 gen strokelnIRR`x' = ln(strokeIRR`x')
-}
+}*/
 
 *scalars for means
 foreach x in N_exp1 N_exp0 ///
