@@ -32,15 +32,15 @@ p_death95=p_death95 p_death95_exp0=p_death95_exp0 p_death95_exp1=p_death95_exp1 
 med_survage=med_survage med_survage_exp0=med_survage_exp0 med_survage_exp1=med_survage_exp1 ///
 p_stroke=p_stroke p_stroke_exp0=p_stroke_exp0 p_stroke_exp1=p_stroke_exp1 ///
 strokerate45to55_exp0=strokerate10000pys45to55_exp0 strokerate45to55_exp1=strokerate10000pys45to55_exp1 ///
-strokeIRR45to55=strokeIRR45to55 strokeIRR45to55_lb=strokeIRR45to55_lb strokeIRR45to55_ub=strokeIRR45to55_ub strokelnIRR45to55_SE ///
+strokeIRR45to55=strokeIRR45to55 strokeIRR45to55_lb=strokeIRR45to55_lb strokeIRR45to55_ub=strokeIRR45to55_ub strokelnIRR45to55_SE=strokelnIRR45to55_SE strokelnIRR45to55=strokelnIRR45to55 ///
 strokerate55to65_exp0=strokerate10000pys55to65_exp0 strokerate55to65_exp1=strokerate10000pys55to65_exp1 ///
-strokeIRR55to65=strokeIRR55to65 strokeIRR55to65_lb=strokeIRR55to65_lb strokeIRR55to65_ub=strokeIRR55to65_ub strokelnIRR55to65_SE ///
+strokeIRR55to65=strokeIRR55to65 strokeIRR55to65_lb=strokeIRR55to65_lb strokeIRR55to65_ub=strokeIRR55to65_ub strokelnIRR55to65_SE=strokelnIRR55to65_SE strokelnIRR55to65_SE strokelnIRR55to65=strokelnIRR55to65 ///
 strokerate65to75_exp0=strokerate10000pys65to75_exp0 strokerate65to75_exp1=strokerate10000pys65to75_exp1 ///
-strokeIRR65to75=strokeIRR65to75 strokeIRR65to75_lb=strokeIRR65to75_lb strokeIRR65to75_ub=strokeIRR65to75_ub strokelnIRR65to75_SE  ///
+strokeIRR65to75=strokeIRR65to75 strokeIRR65to75_lb=strokeIRR65to75_lb strokeIRR65to75_ub=strokeIRR65to75_ub strokelnIRR65to75_SE=strokelnIRR65to75_SE strokelnIRR65to75_SE strokelnIRR65to75=strokelnIRR65to75  ///
 strokerate75to85_exp0=strokerate10000pys75to85_exp0 strokerate75to85_exp1=strokerate10000pys75to85_exp1 ///
-strokeIRR75to85=strokeIRR75to85 strokeIRR75to85_lb=strokeIRR75to85_lb strokeIRR75to85_ub=strokeIRR75to85_ub strokelnIRR75to85_SE ///
+strokeIRR75to85=strokeIRR75to85 strokeIRR75to85_lb=strokeIRR75to85_lb strokeIRR75to85_ub=strokeIRR75to85_ub strokelnIRR75to85_SE=strokelnIRR75to85_SE strokelnIRR75to85_SE strokelnIRR75to85=strokelnIRR75to85 ///
 strokerate85to95_exp0=strokerate10000pys85to95_exp0 strokerate85to95_exp1=strokerate10000pys85to95_exp1 ///
-strokeIRR85to95=strokeIRR85to95 strokeIRR85to95_lb=strokeIRR85to95_lb strokeIRR85to95_ub=strokeIRR85to95_ub strokelnIRR85to95_SE ///
+strokeIRR85to95=strokeIRR85to95 strokeIRR85to95_lb=strokeIRR85to95_lb strokeIRR85to95_ub=strokeIRR85to95_ub strokelnIRR85to95_SE=strokelnIRR85to95_SE strokelnIRR85to95_SE strokelnIRR85to95=strokelnIRR85to95 ///
 strokeIRD45to55=strokeIRD45to55 strokeIRD45to55_lb=strokeIRD45to55_lb strokeIRD45to55_ub=strokeIRD45to55_ub strokeIRD45to55_SE ///
 strokeIRD55to65=strokeIRD55to65 strokeIRD55to65_lb=strokeIRD55to65_lb strokeIRD55to65_ub=strokeIRD55to65_ub strokeIRD55to65_SE ///
 strokeIRD65to75=strokeIRD65to75 strokeIRD65to75_lb=strokeIRD65to75_lb strokeIRD65to75_ub=strokeIRD65to75_ub strokeIRD65to75_SE ///
@@ -163,10 +163,10 @@ gen p_stroke80to85_exp1 = nstrokes80to85_exp1/(p_alive80_exp1*`N')
 gen p_stroke85to90_exp1 = nstrokes85to90_exp1/(p_alive85_exp1*`N')
 gen p_stroke90to95_exp1 = nstrokes90to95_exp1/(p_alive90_exp1*`N')
 
-*get ln(IRR)
+/*get ln(IRR)
 foreach x in 45to55 55to65 65to75 75to85 85to95 {
 gen strokelnIRR`x' = ln(strokeIRR`x')
-}
+}*/
 
 *scalars for means
 foreach x in N_exp1 N_exp0 ///
